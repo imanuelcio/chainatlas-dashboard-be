@@ -32,7 +32,8 @@ const setupPassport = (passport) => {
         clientID: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
         callbackURL:
-          "https://dashboard.atlashubs-bot.xyz/api/auth/discord/callback",
+          // "https://dashboard.atlashubs-bot.xyz/api/auth/discord/callback",
+          "http://localhost:5000/api/auth/discord/callback",
         scope: ["identify", "email", "guilds.members.read"],
       },
       async (accessToken, refreshToken, profile, done) => {
