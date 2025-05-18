@@ -62,9 +62,9 @@ const discordCallback = (req, res) => {
 
   // Redirect to frontend with token
   res.redirect(
-    devStatus
-      ? `${process.env.FRONTEND_URL_DEV}/auth/discord/callback?token=${token}`
-      : `${process.env.FRONTEND_URL_PROD}/auth/discord/callback?token=${token}`
+    // devStatus
+    `${process.env.FRONTEND_URL}/auth/discord/callback?token=${token}`
+    // : `${process.env.FRONTEND_URL_PROD}/auth/discord/callback?token=${token}`
     // `${process.env.FRONTEND_URL_DEV}/auth/discord/callback?token=${token}`
   );
 };
