@@ -43,6 +43,12 @@ const apiLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+app.get("/", (req, res) =>
+  res.status(200).json({
+    message: "Hello from backend",
+  })
+);
+
 app.use("/api/", apiLimiter);
 
 // Request logging
