@@ -8,6 +8,8 @@ const logger = require("../utils/logger");
 // handleWalletAuth,
 //   verifyWalletSignature,
 // Request nonce for wallet authentication
+
+const devStatus = process.env.NODE_ENV === "development";
 const requestNonce = async (req, res, next) => {
   try {
     const { address } = req.body;
@@ -60,7 +62,10 @@ const discordCallback = (req, res) => {
 
   // Redirect to frontend with token
   res.redirect(
-    `${process.env.FRONTEND_URL}/auth/discord/callback?token=${token}`
+    devStatus
+      ? `${process.env.FRONTEND_URL_DEV}/auth/discord/callback?token=${token}`
+      : `${process.env.FRONTEND_URL_PROD}/auth/discord/callback?token=${token}`
+    // `${process.env.FRONTEND_URL_DEV}/auth/discord/callback?token=${token}`
   );
 };
 
