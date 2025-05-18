@@ -1,14 +1,10 @@
 const User = require("../models/User");
+const { generateToken, generateNonce, deleteNonce } = require("../utils/auth");
 const {
   handleWalletAuth,
   verifyWalletSignature,
-} = require("../services/web3service");
-const { generateToken, generateNonce, deleteNonce } = require("../utils/auth");
-// const {
-//   handleWalletAuth,
-//   verifyWalletSignature,
-// } = require("../services/web3Service");
-// const logger = require("../utils/logger");
+} = require("../services/web3Service");
+const logger = require("../utils/logger");
 // handleWalletAuth,
 //   verifyWalletSignature,
 // Request nonce for wallet authentication

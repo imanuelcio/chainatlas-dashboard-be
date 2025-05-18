@@ -28,7 +28,10 @@ mongoose
 app.use(helmet());
 app.use(
   cors({
-    origin: "http://localhost:3000", // atau '*' jika dev dan tidak peduli security
+    origin: [
+      "http://localhost:3000",
+      "https://chainatlas-dashboard.vercel.app",
+    ], // atau '*' jika dev dan tidak peduli security
     credentials: true, // jika kamu pakai cookies atau Authorization header
   })
 );
