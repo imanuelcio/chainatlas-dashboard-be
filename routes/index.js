@@ -96,7 +96,9 @@ router.post(
   badgeController.awardBadge
 );
 router.get("/users/:userId/badges", badgeController.getUserBadges);
-
+router.post("/logout", (req, res) => {
+  res.status(200).json({ message: "Logout successful" });
+});
 // Event routes
 router.post(
   "/events",
